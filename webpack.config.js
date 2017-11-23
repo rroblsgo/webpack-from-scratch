@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 let config = {
     entry: './src/index.js',
@@ -24,7 +25,8 @@ let config = {
         ]
     },
     plugins: [
-        new ExtractTextWebpackPlugin('styles.css') // call plugin constructor with name our css file
+        new ExtractTextWebpackPlugin('styles.css'), // call plugin constructor with name our css file
+        new DashboardPlugin()
     ],
     devServer: {
         contentBase: path.resolve(__dirname, './public'), // A directory or url to serve html content
